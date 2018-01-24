@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		div {
+			height: 70px;
+			width: 100px;
+			background-color: red;
+			float: left;
+			margin: 3px;
+			cursor: pointer;
+			text-align: center;
+			font-size: 36px;
+			padding-top: 30px;
+		}
+	</style>
+
+	<title>Let Keyword</title>
+</head>
+<body>
+
+	<h1>Click on a box</h1>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	
+	<script>
+	
+	/*
+		This program demonstrates the ES6 'let' keyword
+		using a for loop. It is derived from a lynda.com tutorial
+	*/
+	
+	// Put references to all 5 divs in a nodelist
+	var boxes = document.getElementsByTagName('div');	
+	
+	// Assign a click handler to each nodelist member
+	// The index variable i has block scope, so it is 
+	// only defined inside the for loop. 
+	// (replace let with var and run the program to see the difference)
+	
+	for (let i=0; i<boxes.length; i++) {
+		boxes[i].onclick = function() {
+			this.innerHTML = i;
+		}
+	}
+
+	console.log( i );
+	// Displays "ReferenceError: inner is not defined"
+		
+	</script>
+	
+</body>	
+</html>

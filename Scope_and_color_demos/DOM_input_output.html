@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DOM Input/Output Demo</title>
+    <style>
+		body {
+			font-family: verdana,helvetica,sans-serif;
+			font-size: 100%;	
+		}
+		#container {
+			width: 500px;
+			margin: 50px auto;
+			padding: 0 30px 40px;
+			border: 1px solid gray;
+			background-color:#ECEAEA;
+		}
+		#container > div {
+			margin-top: 30px;
+		}
+		#output {
+			margin-top: 5px;
+			margin-left: 20px;
+			font-size: 1.1em;
+			color: #476A98;
+		}
+		input[type="text"] {
+			padding:5px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="container">
+    	<div>
+            1) Enter yer data here: 
+            <input type="text" id="input" value="broccoli">
+     	</div>
+        <div>
+			2) Then click this button: 
+			<button id="btn">Click me!</button> 
+		</div>
+		
+		<div>
+			3) And watch your data display below:
+			<p id="output"></p>
+		</div>
+   
+   	</div>   <!-- end container -->
+   	
+	<script>
+		// declare variable references (they're all DOM objects, by the way) 
+		let input = document.getElementById("input");
+		let btn = document.getElementById("btn");
+		let output = document.getElementById("output");
+		
+		let displayOutput = function () {
+			let data = input.value;
+			// concatenate value with break tag so each data string 
+			// will appear on a new line
+			output.innerHTML += data + "<br>";
+		};
+		
+		// Set up the button click event
+		btn.addEventListener("click",displayOutput,false);
+		
+	</script>
+</body>
+
+</html>

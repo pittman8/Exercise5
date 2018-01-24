@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Let Keyword</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		The 'let' keyword gives the variable block scope. This means the variable can't be
+		seen outside the pair of curly braces that it's defined in. 
+	*/
+	
+	let say = "hello";
+	let outer = "An outer variable";
+
+	
+	if (say === "hello") {
+		//let say = "goodbye";
+		
+		console.log( say );
+		
+		console.log( outer );
+		
+		let inner = "An inner variable";
+		console.log( inner );
+	}
+        
+		
+	console.log( say );
+	// Displays "hello"
+		
+console.log( inner );
+        
+        
+        
+	// Displays an error most likely - depending on your browser 
+		
+	/* 
+		A variable defined outside the 'if' statement can be seen inside the 'if' statement.
+        
+		But any variables defined inside the 'if' statement can't be seen outside it. 
+		That's what block scope is. The 'if' statement's curly braces define the block 
+		in which the variable is visible.
+	*/
+
+	</script>
+</body>	
+</html>
