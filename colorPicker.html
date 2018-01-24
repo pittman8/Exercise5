@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Color Picker</title>
+	<style>
+        #container {
+			width: 500px;
+			margin: 50px auto;
+            border: 1px solid black;
+            padding: 0 30px 40px;
+            background-color: floralwhite;
+        }
+        
+        .colorBoxes {
+            width: 75px;
+            border: 1px solid grey;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        #box {
+            width: 300px;
+			height: 38px;
+            float: right;
+        }
+        
+        #clear {
+            float: right;
+        }
+        
+    </style>
+    
+</head>
+    
+<body>
+    <div id="container">
+        <h1>CSS Color Displayer</h1>
+        <div>
+            Select a number from 0 to 255 for each color value: 
+        </div>
+        <br />
+        
+        <div class="colorBoxes" id="red">
+        <form>Red:
+            <input type="text" size="3" name="red">
+        </form>
+        </div>
+        <br />
+        
+        <input type= "text" id="box">
+        <br />
+        
+        <div class= "colorBoxes" id = "green">
+        <form>Green:
+            <input type="text" size="3" name="green">
+        </form>
+        </div>
+        <br />
+        
+        <div class= "colorBoxes" id = "blue">
+        <form>Blue:
+            <input type="text" size="3" name="blue">
+        </form>
+        </div>
+        <br /> <br />
+        
+        <button id="submit">Show me the color! </button>
+        <button id="clear">Clear all</button>
+        
+    </div>
+    <script>
+    
+    let red = document.getElementById("red");
+    let green = document.getElementById("green");
+    let blue = document.getElementById("blue");
+    let submit = document.getElementById("submit");
+    let box = document.getElementById("box");
+        
+    function clickHandler() {
+        box.style.backgroundColor = "rgb(" +red+", " +green+", "+ blue+")";
+    }
+        
+    submit.addEventListener("click", clickHandler, false);
+    </script>
+        
+</body>
+</html>
