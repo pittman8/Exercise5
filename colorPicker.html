@@ -43,7 +43,7 @@
         
         <div class="colorBoxes" id="red">
         <form>Red:
-            <input type="text" size="3" name="red">
+            <input type="text" size="3" name="Red">
         </form>
         </div>
         <br />
@@ -53,35 +53,40 @@
         
         <div class= "colorBoxes" id = "green">
         <form>Green:
-            <input type="text" size="3" name="green">
+            <input type="text" size="3" name="Green">
         </form>
         </div>
         <br />
         
         <div class= "colorBoxes" id = "blue">
         <form>Blue:
-            <input type="text" size="3" name="blue">
+            <input type="text" size="3" name="Blue">
         </form>
         </div>
         <br /> <br />
         
-        <button id="submit">Show me the color! </button>
+        <button id="submit">Show me the color!</button>
         <button id="clear">Clear all</button>
         
     </div>
     <script>
     
-    let red = document.getElementById("red");
+    let red = parseInt(document.getElementById("red"));
+    red = parseInt(red);
     let green = document.getElementById("green");
+    green = parseInt(green);
     let blue = document.getElementById("blue");
+    blue = parseInt(blue);
     let submit = document.getElementById("submit");
     let box = document.getElementById("box");
+    
+    
+    submit.addEventListener("click", clickHandler, false);
         
     function clickHandler() {
-        box.style.backgroundColor = "rgb(" +red+", " +green+", "+ blue+")";
+        box.style.backgroundColor = "rgb(" +red+", " +green+", "+ blue+")"; 
     }
-        
-    submit.addEventListener("click", clickHandler, false);
+    
     </script>
         
 </body>
