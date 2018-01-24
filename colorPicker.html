@@ -41,29 +41,16 @@
         </div>
         <br />
         
-        <div class="colorBoxes" id="red">
-        <form>Red:
-            <input type="text" size="3" name="Red">
+        <form>Red:<br />
+            <input type="text" size="3" class="colorBoxes" id="red">
+            <br />Green:<br />
+            <input type="text" size="3" class="colorBoxes" id="green">
+            <br />Blue:<br />
+            <input type="text" size="3" class="colorBoxes" id="blue">
+            <br />
+            <input type= "text" id="box">
+            <br /><br /><br />
         </form>
-        </div>
-        <br />
-        
-        <input type= "text" id="box">
-        <br />
-        
-        <div class= "colorBoxes" id = "green">
-        <form>Green:
-            <input type="text" size="3" name="Green">
-        </form>
-        </div>
-        <br />
-        
-        <div class= "colorBoxes" id = "blue">
-        <form>Blue:
-            <input type="text" size="3" name="Blue">
-        </form>
-        </div>
-        <br /> <br />
         
         <button id="submit">Show me the color!</button>
         <button id="clear">Clear all</button>
@@ -71,20 +58,31 @@
     </div>
     <script>
     
-    let red = parseInt(document.getElementById("red"));
-    red = parseInt(red);
+    let red = document.getElementById("red");
     let green = document.getElementById("green");
-    green = parseInt(green);
     let blue = document.getElementById("blue");
-    blue = parseInt(blue);
     let submit = document.getElementById("submit");
     let box = document.getElementById("box");
-    
     
     submit.addEventListener("click", clickHandler, false);
         
     function clickHandler() {
-        box.style.backgroundColor = "rgb(" +red+", " +green+", "+ blue+")"; 
+        let redValue = red.value;
+        let greenValue = green.value;
+        let blueValue = blue.value;
+        redValue = parseInt(redValue);
+        greenValue = parseInt(greenValue);
+        blueValue = parseInt(blueValue);
+        
+        if(isNaN(redValue)|| isNaN(greenValue) || isNaN(blueValue)) {
+            // reset text fields & color in box
+            alert("Please enter a number!");
+        } else if(redValue > 255 || redValue < 0 || greenValue < 0 || greenValue > 255 || blueValue < 0 || blueValue > 255) {
+            // reset text fields & color in box
+            alert("Please enter a number between 0 and 255");
+        } else {
+            box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
+        }
     }
     
     </script>
