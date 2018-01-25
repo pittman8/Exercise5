@@ -41,7 +41,7 @@
         </div>
         <br />
         
-        <form>Red:<br />
+        <form id=input>Red:<br />
             <input type="text" size="3" class="colorBoxes" id="red">
             <br />Green:<br />
             <input type="text" size="3" class="colorBoxes" id="green">
@@ -74,15 +74,24 @@
         greenValue = parseInt(greenValue);
         blueValue = parseInt(blueValue);
         
-        if(isNaN(redValue)|| isNaN(greenValue) || isNaN(blueValue)) {
-            // reset text fields & color in box
-            alert("Please enter a number!");
-        } else if(redValue > 255 || redValue < 0 || greenValue < 0 || greenValue > 255 || blueValue < 0 || blueValue > 255) {
-            // reset text fields & color in box
-            alert("Please enter a number between 0 and 255");
-        } else {
-            box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
+        // Put values into an array
+        var colors = [redValue, greenValue, blueValue];
+        var colorsLength = colors.length;
+        
+        // Loop through array to check for valid number and in 0 to 255 range
+        for(var i = 0; i < colorsLength; i++) {
+            if(isNaN(colors[i])) {
+                alert("Please enter a number!");
+                document.getElementById("input").reset();
+                break;
+            }
+            if(colors[i] > 255 || colors[i] < 0) {
+                alert("Please enter a number between 0 and 255");
+                document.getElementById("input").reset();
+                break;
+            }
         }
+        box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
     }
     
     </script>
