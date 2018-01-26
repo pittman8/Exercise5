@@ -62,7 +62,7 @@
     let box = document.getElementById("box");
     
     submit.addEventListener("click", clickSubmit, false);
-    reset.addEventListener("click", clickReset, false)
+    reset.addEventListener("click", clickReset, false);
         
     // What happens when submit button is clicked
     function clickSubmit() {
@@ -79,12 +79,10 @@
         
         // Loop through array to check for valid number and in 0 to 255 range
         for(var i = 0; i < colorsLength; i++) {
-            if(isNaN(colors[i])) {
-                alert("Please enter a number!");
-                clickReset(); // call function to reset
-            } else if(colors[i] > 255 || colors[i] < 0) {
+            if((isNaN(colors[i])) || (colors[i] > 255) || (colors[i] < 0)) {
                 alert("Please enter a number between 0 and 255");
-                clickReset(); // call function to reset
+                clickReset();
+                break;
             } else {
                 box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
             }
@@ -96,6 +94,7 @@
         document.getElementById("input").reset();
         box.style.backgroundColor = "rgb(255, 250, 240)"; // floral white
     }
+         
     </script>
         
 </body>
