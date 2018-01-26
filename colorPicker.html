@@ -20,12 +20,9 @@
         }
         
         #box {
+            border: 1px solid black;
             width: 300px;
 			height: 38px;
-            float: right;
-        }
-        
-        #clear {
             float: right;
         }
         
@@ -47,32 +44,34 @@
             <input type="text" size="3" class="colorBoxes" id="green">
             <br />Blue:<br />
             <input type="text" size="3" class="colorBoxes" id="blue">
-            <br />
-            <input type= "text" id="box">
-            <br /><br /><br />
+            <br /><br />
         </form>
+        <div id="box"></div>
         
         <button id="submit">Show me the color!</button>
-        <button id="clear">Clear all</button>
+        <br /> <br />
+        <button id="reset">Clear all</button>
         
     </div>
     <script>
-    
+        
     let red = document.getElementById("red");
     let green = document.getElementById("green");
     let blue = document.getElementById("blue");
     let submit = document.getElementById("submit");
     let box = document.getElementById("box");
     
-    submit.addEventListener("click", clickHandler, false);
+    submit.addEventListener("click", clickSubmit, false);
+    reset.addEventListener("click", clickReset, false)
         
-    function clickHandler() {
+    // What happens when submit button is clicked
+    function clickSubmit() {
         let redValue = red.value;
         let greenValue = green.value;
         let blueValue = blue.value;
         redValue = parseInt(redValue);
         greenValue = parseInt(greenValue);
-        blueValue = parseInt(blueValue);
+        blueValue = parseInt(blueValue); 
         
         // Put values into an array
         var colors = [redValue, greenValue, blueValue];
@@ -82,18 +81,23 @@
         for(var i = 0; i < colorsLength; i++) {
             if(isNaN(colors[i])) {
                 alert("Please enter a number!");
-                document.getElementById("input").reset();
+                clickReset(); // call function to reset
                 break;
             }
             if(colors[i] > 255 || colors[i] < 0) {
                 alert("Please enter a number between 0 and 255");
-                document.getElementById("input").reset();
+                clickReset(); // call function to reset
                 break;
             }
         }
         box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
     }
-    
+       
+    // What happens when clear all button is clicked
+    function clickReset() {
+        document.getElementById("input").reset();
+        // RESET BOX COLOR
+    }
     </script>
         
 </body>
