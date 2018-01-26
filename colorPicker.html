@@ -82,21 +82,19 @@
             if(isNaN(colors[i])) {
                 alert("Please enter a number!");
                 clickReset(); // call function to reset
-                break;
-            }
-            if(colors[i] > 255 || colors[i] < 0) {
+            } else if(colors[i] > 255 || colors[i] < 0) {
                 alert("Please enter a number between 0 and 255");
                 clickReset(); // call function to reset
-                break;
+            } else {
+                box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
             }
         }
-        box.style.backgroundColor = "rgb(" +redValue+", " +greenValue+", "+ blueValue+")";
     }
        
     // What happens when clear all button is clicked
     function clickReset() {
         document.getElementById("input").reset();
-        // RESET BOX COLOR
+        box.style.backgroundColor = "rgb(255, 250, 240)"; // floral white
     }
     </script>
         
